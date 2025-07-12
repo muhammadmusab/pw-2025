@@ -29,24 +29,24 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[#6B7280] hover:text-[#7C3AED] font-medium transition-colors duration-200 relative group"
+              className="text-[#6B7280] hover:text-primary font-medium transition-colors duration-200 relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7C3AED] group-hover:w-full transition-all duration-200"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-200"></span>
             </Link>
           ))}
 
           <div className="flex items-center gap-4">
             <Link
               href="/login"
-              className="text-[#6B7280] hover:text-[#7C3AED] font-medium transition-colors duration-200"
+              className="text-[#6B7280] hover:text-primary font-medium transition-colors duration-200"
             >
               Login
             </Link>
 
             <Link
               href="/signup"
-              className="bg-[#7C3AED] hover:bg-[#7C3AED]/90 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
             >
               Sign Up Free
             </Link>

@@ -4,6 +4,7 @@ import { Menu} from "lucide-react";
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -14,12 +15,13 @@ const MobileMenu = ({ navLinks }: Props) => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu size={24} />
+        <Menu className="cursor-pointer" size={24} />
       </SheetTrigger>
       <SheetContent
         className="w-[100%] bg-white transition-all sm:max-w-[500px]"
         side={"right"}
       >
+        <SheetTitle className="opacity-0"></SheetTitle>
         <SheetHeader className="relative">
           <Link
             href="/"
