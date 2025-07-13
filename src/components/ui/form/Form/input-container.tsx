@@ -1,12 +1,5 @@
 import React, { Children } from "react";
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../form";
+import { FormDescription, FormItem, FormLabel, FormMessage } from "../form";
 import { Description, Label } from "@/types/form";
 
 const Slot: React.FC<{
@@ -29,13 +22,13 @@ const InputContainer = ({
   showMessage?: boolean;
 }) => {
   const childrenArray = Children.toArray(
-    children
+    children,
   ) as unknown as React.ReactElement[];
   const inputPrependSlot = childrenArray.find(
-    (child) => child?.props?.name === "inputPrepend"
+    (child) => child?.props?.name === "inputPrepend",
   );
   const inputAppendSlot = childrenArray.find(
-    (child) => child?.props?.name === "inputAppend"
+    (child) => child?.props?.name === "inputAppend",
   );
 
   const labelBox = label ? (
@@ -57,7 +50,15 @@ const InputContainer = ({
       {inputAppendSlot?.props.chilren}
       {label && (label.text || label.icon) && !label.prepend && labelBox}
       {description && !description.prepend && descriptionBox}
-      {showMessage ? <FormMessage className="text-primary" /> : null}
+      {
+        <div className={'h-[0px]'}>
+          {showMessage ? (
+            <FormMessage className="text-primary" />
+          ) : (
+            <p className="opacity-0">No message</p>
+          )}
+        </div>
+      }
     </FormItem>
   );
 };
