@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDropzone, DropzoneProps, DropzoneOptions } from "react-dropzone";
 import InputContainer from "./Form/input-container";
 import { Description, Label } from "@/types/form";
@@ -69,7 +69,7 @@ export const Dropzone = ({
     if (status === "success") {
       field.onChange(files.filter((file) => file.status === "success"));
     }
-  }, [files, field, status]);
+  }, [status]);
   return (
     <InputContainer
       label={label}
@@ -95,11 +95,11 @@ export const Dropzone = ({
               : "",
             inputProps?.disabled
               ? "bg-light3 border-gray-200 text-gray-300"
-              : ""
+              : "",
           ),
         })}
       >
-        <div className="flex flex-col justify-center items-center text-center">
+        <div className="flex flex-col items-center justify-center text-center">
           <FormControl>
             <input
               name={field.name}
@@ -107,7 +107,9 @@ export const Dropzone = ({
               {...getInputProps()}
             />
           </FormControl>
-          <div className="mb-3">{dndText && <p>{dndText}</p>}</div>
+          {!files.length ? (
+            <div className="mb-3">{dndText && <p>{dndText}</p>}</div>
+          ) : null}
         </div>
         {Boolean(showPreview) && (
           <Spacing className="mt-3" level={4}>

@@ -1,17 +1,16 @@
 import React from "react";
 import Link from "next/link";
-import {
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
 const PostWizardCta = () => {
   return (
     <section className="text-center">
       <div className="from-primary/5 to-accent/5 border-primary/10 rounded-3xl border bg-gradient-to-r p-8 lg:p-12">
         <h3 className="text-text mb-4 text-2xl font-bold lg:text-3xl">
-          Start Automating Today
+          Ready to Create Smarter, Faster?
         </h3>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-[#6B7280]">
-          No credit card required. Set up your first AI post in minutes.
+          Turn your product details into AI-powered posts, schedule with ease, and stay on top of social media without the stress.
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -33,7 +32,7 @@ const PostWizardCta = () => {
         </div>
 
         <p className="mt-4 text-sm text-[#6B7280]">
-          Join 10,000+ businesses already using PostWizard
+          No credit card required • Set up in minutes • Join 10,000+ businesses
         </p>
       </div>
     </section>

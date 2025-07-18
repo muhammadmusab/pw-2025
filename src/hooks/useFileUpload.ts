@@ -1,4 +1,4 @@
-import { uploadAction } from "@/actions/upload-action";
+import { uploadAction } from "@/actions/upload-actions";
 import { useEffect, useState } from "react";
 import { useToast } from "./useToast";
 import { FileRejection } from "react-dropzone";

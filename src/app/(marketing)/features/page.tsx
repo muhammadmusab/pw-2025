@@ -6,6 +6,7 @@ import {
   Video,
   ShoppingBag,
   ShieldCheck,
+  TrendingUp,
 } from "lucide-react";
 import Feature from "@/components/pages/features/feature";
 import FeaturesHeroSection from "@/components/pages/features/hero-section";
@@ -14,43 +15,44 @@ import PostWizardCta from "@/components/pages/features/post-wizard-cta";
 
 export default function FeaturesPage() {
   const features = [
-    {
-      icon: <Wand2 className="h-8 w-8" />,
-      title: "AI Post Generator",
-      desc: "Just describe your product — we'll generate a scroll-stopping post with image, caption, and hashtags.",
-      color: "purple",
-    },
-    {
-      icon: <CalendarCheck className="h-8 w-8" />,
-      title: "Smart Scheduler",
-      desc: "Set it and forget it. Schedule posts across Facebook, Instagram & TikTok with just one click.",
-      color: "amber",
-    },
-    {
-      icon: <Video className="h-8 w-8" />,
-      title: "AI Video Creation",
-      desc: "Need video reels? We'll turn product info into short-form social video content automatically.",
-      color: "green",
-    },
-    {
-      icon: <ShoppingBag className="h-8 w-8" />,
-      title: "Shopify Integration",
-      desc: "Connect your store and auto-post new products as branded social content — no manual work needed.",
-      color: "purple",
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Team Collaboration",
-      desc: "Invite your marketing team, assign roles, and work together in real time.",
-      color: "amber",
-    },
-    {
-      icon: <ShieldCheck className="h-8 w-8" />,
-      title: "White-Label Support",
-      desc: "Agencies can offer PostWizard under their brand, with custom domains and branding.",
-      color: "green",
-    },
-  ];
+  {
+    icon: <Wand2 className="h-8 w-8" />,
+    title: "AI Ad & Post Generator",
+    desc: "Create high-converting social media posts and ads in seconds — captions, visuals, and hashtags included.",
+    color: "purple",
+  },
+  {
+    icon: <CalendarCheck className="h-8 w-8" />,
+    title: "Smart Scheduling & Alerts",
+    desc: "Plan your content calendar in one dashboard. We'll send you WhatsApp reminders when it's time to post — so you never miss a slot.",
+    color: "amber",
+  },
+  {
+    icon: <Video className="h-8 w-8" />,
+    title: "AI Video & Reels",
+    desc: "Generate short-form video ads or social reels from your product details — perfect for TikTok & Instagram.",
+    color: "green",
+  },
+  {
+    icon: <ShoppingBag className="h-8 w-8" />,
+    title: "E-Commerce Store Sync",
+    desc: "Connect Shopify or WooCommerce to auto-generate posts and ads whenever you add a new product.",
+    color: "purple",
+  },
+  {
+    icon: <TrendingUp className="h-8 w-8" />,
+    title: "Performance Insights",
+    desc: "Track engagement, CTR, and ROI across all platforms with smart analytics dashboards.",
+    color: "amber",
+  },
+  {
+    icon: <ShieldCheck className="h-8 w-8" />,
+    title: "White-Label for Agencies",
+    desc: "Rebrand PostWizard for your agency, add your custom domain, and manage unlimited client accounts.",
+    color: "green",
+  },
+]
+;
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#F9FAFB] via-[#FFFFFF] to-[#F3F4F6]">
       {/* Background decorative elements */}

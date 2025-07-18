@@ -8,47 +8,49 @@ export default function PricingPreviewSection({
   const plans = [
     {
       name: "Starter",
-      price: "Free",
-      period: "",
-      description: "Perfect for testing the waters",
+      price: "$0",
+      period: "/month",
+      description: "Great for small stores testing AI content",
       features: [
-        "10 AI posts per month",
-        "1 social account",
-        "🚫 No Video Content",
-        "🚫 PostWizard branding watermark",
+        "10 AI-generated posts per month",
+        "1 connected social account",
+        "Basic product-to-post feature",
+        "No WhatsApp notifications",
+        "🚫 No video or ad creatives",
       ],
       cta: "Start Free",
       popular: false,
       color: "gray",
     },
     {
-      name: "Pro",
-      price: "$19",
+      name: "Growth",
+      price: "$9",
       period: "/month",
-      description: "Best for growing businesses",
+      description: "Perfect for e-commerce businesses ready to scale",
       features: [
-        "100 AI posts per month",
-        "3 social accounts",
-        "Video + Image + Caption",
-        "No watermark",
-        "🚫 No White Label",
+        "150 AI-generated posts per month",
+        "Up to 5 social accounts",
+        "AI Ad Creatives + Video support",
+        "WhatsApp content notifications",
+        "Content calendar & semi-automated scheduling",
       ],
-      cta: "Start Pro Trial",
+      cta: "Start Growth Plan",
       popular: true,
       color: "purple",
     },
     {
       name: "Agency",
-      price: "$49",
+      price: "$29",
       period: "/month",
-      description: "For agencies and teams",
+      description: "For agencies managing multiple clients",
       features: [
-        "Unlimited AI posts",
-        "10+ Social Accounts",
-        "Team access & Analytics",
-        "White Label Support",
+        "Unlimited AI posts + Ad creatives",
+        "25+ Social accounts",
+        "Shopify & WooCommerce integration",
+        "Team access + White Label branding",
+        "Advanced analytics & reporting",
       ],
-      cta: "Start Agency Trial",
+      cta: "Start Agency Plan",
       popular: false,
       color: "amber",
     },
@@ -59,7 +61,6 @@ export default function PricingPreviewSection({
       {/* Background decorative elements */}
       <div>
         <div className="bg-primary absolute -top-40 -right-40 h-80 w-80 animate-pulse rounded-full opacity-10 mix-blend-multiply blur-xl filter lg:block hidden"></div>
-        {/* <div className="bg-accent absolute -bottom-40 -left-40 h-80 w-80 animate-pulse rounded-full opacity-10 mix-blend-multiply blur-xl filter delay-1000"></div> */}
         <div className="bg-success absolute -top-40 -left-40 h-80 w-80 animate-pulse rounded-full opacity-10 mix-blend-multiply blur-xl filter"></div>
       </div>
 
@@ -73,24 +74,23 @@ export default function PricingPreviewSection({
 
           <h2 className="text-text mb-6 text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl">
             <span className="from-primary to-accent bg-gradient-to-r bg-clip-text text-transparent">
-              Simple Plans
+              Flexible Plans
             </span>
             <br />
-            for Every Business
+            for E-commerce Growth
           </h2>
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-[#6B7280] sm:text-xl">
-            Start free, upgrade when you're ready. All plans include our core AI
-            features.
+            Start free and upgrade when your store is ready to scale with AI-powered content, ads, and scheduling.
           </p>
         </div>
 
         {/* Pricing Cards */}
         <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {plans.map((plan, index) => (
+          {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl border-2 bg-[#FFFFFF] p-8 transition-all duration-300 hover:shadow-xl ${
+              className={`relative my-3 rounded-2xl border-2 bg-[#FFFFFF] p-8 transition-all duration-300 hover:shadow-xl ${
                 plan.popular
                   ? "border-primary scale-105 shadow-lg"
                   : "hover:border-primary/30 border-gray-100"
@@ -99,7 +99,7 @@ export default function PricingPreviewSection({
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-                  <div className="bg-primary flex items-center gap-1 rounded-full px-4 py-1 text-sm font-semibold text-white">
+                  <div className="bg-primary sm:w-auto w-[140px] justify-center flex items-center gap-1 rounded-full px-4 py-1 text-sm font-semibold text-white">
                     <Star className="h-3 w-3 fill-current" />
                     Most Popular
                   </div>
@@ -157,8 +157,7 @@ export default function PricingPreviewSection({
         {showCta ? (
           <div className="text-center">
             <p className="mb-6 text-[#6B7280]">
-              Need more details? Compare all features and find the perfect plan
-              for your business.
+              Need more details? Compare all features and pick the perfect plan.
             </p>
 
             <a
