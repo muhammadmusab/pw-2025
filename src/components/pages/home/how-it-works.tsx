@@ -1,49 +1,49 @@
 import {
   Link2,
-  Package,
+  ShoppingBag,
   Sparkles,
   ArrowRight,
-  //   Facebook,
-  //   Instagram,
-  Video,
+  Megaphone,
 } from "lucide-react";
-// import { FaFacebook,FaInstagram } from "react-icons/fa";
 import {
   RiFacebookLine as Facebook,
   RiInstagramLine as Instagram,
+  RiTiktokLine as Tiktok,
 } from "react-icons/ri";
 
-export default function FeaturesSection() {
+export default function HowItWorks() {
   const steps = [
     {
       number: 1,
       color: "#7C3AED",
       iconClass: "bg-primary/10",
       arrowColor: "#FBBF24",
-      icon: <Link2 className="h-8 w-8 bg-primary/10" />,
-      heading: "Connect Your Socials",
-      text: "Link your Facebook, Instagram, or TikTok pages securely with just a few clicks.",
+      icon: <ShoppingBag className="h-8 w-8 text-primary" />,
+      heading: "Sync Your Store or Add Products",
+      text: "Connect Shopify or WooCommerce in one click — or manually add product details like name, price, and image.",
+      points: ["Shopify & WooCommerce integration", "Manual product input", "Bulk upload support"],
     },
     {
       number: 2,
       color: "#FBBF24",
       arrowColor: "#10B981",
       iconClass: "bg-accent/10",
-      icon: <Package className="h-8 w-8 text-accent" />,
-      heading: "Add Products",
-      text: "Enter your product/service name, description, price, and image.That's all we need!",
-      points: ["Product details", "Pricing info", "Product images"],
+      icon: <Megaphone className="h-8 w-8 text-accent" />,
+      heading: "Generate Posts & Ad Creatives",
+      text: "Our AI creates high-converting social media posts, reels, ad copy, and creatives tailored to your products.",
+      points: ["Engaging captions & hashtags", "Scroll-stopping ad creatives", "Product-focused campaigns"],
     },
     {
       number: 3,
       color: "#10B981",
       iconClass: "bg-success/10",
       icon: <Sparkles className="h-8 w-8 text-success" />,
-      heading: "Let PostWizard Work",
-      text: "Enter your product/service name, description, price, and image. That's all we need!",
-      points: ["Smart captions", "Perfect hashtags", "Auto-scheduling"],
+      heading: "Plan, Schedule & Notify",
+      text: "Organize your content calendar, set semi-automated posting reminders, and get WhatsApp notifications when content is ready.",
+      points: ["Drag-and-drop content calendar", "Semi-automated scheduling", "WhatsApp content alerts"],
     },
   ];
+
   return (
     <section className="relative overflow-hidden bg-[#FFFFFF] py-20 lg:py-32">
       {/* Background decorative elements */}
@@ -63,22 +63,21 @@ export default function FeaturesSection() {
           <h2 className="mb-6 text-4xl leading-tight font-bold text-[#111827] sm:text-5xl lg:text-6xl">
             From{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Product to Post
+              Store to Social
             </span>
             <br />
             in Seconds
           </h2>
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-[#6B7280] sm:text-xl">
-            Three simple steps to transform your business into a social media
-            powerhouse
+            Three simple steps to generate posts, ads, and campaigns without the stress of manual content creation.
           </p>
         </div>
 
         {/* Steps */}
         <div className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {steps.map((step) => (
-            <div key={"step" + step.number} className="relative ">
+            <div key={"step" + step.number} className="relative">
               <div className="h-full rounded-2xl border border-gray-100 bg-[#FFFFFF] p-8 shadow-sm transition-all duration-300 hover:shadow-lg">
                 {/* Step Number */}
                 <div className="absolute -top-4 left-8">
@@ -98,37 +97,13 @@ export default function FeaturesSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="mb-4 text-2xl font-bold text-[#111827]">
-                  {step.heading}
-                </h3>
-                <p className="mb-6 leading-relaxed text-[#6B7280]">
-                  {step.text}
-                </p>
-
-                {/* Social Icons */}
-                {step.number === 1 && (
-                  <div className="flex gap-3">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-lg bg-[#1877F2]/10`}
-                    >
-                      <Facebook className="h-5 w-5 text-[#1877F2]" />
-                    </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#E4405F]/10">
-                      <Instagram className="h-5 w-5 text-[#E4405F]" />
-                    </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#000000]/10">
-                      <Video className="h-5 w-5 text-[#000000]" />
-                    </div>
-                  </div>
-                )}
+                <h3 className="mb-4 text-2xl font-bold text-[#111827]">{step.heading}</h3>
+                <p className="mb-6 leading-relaxed text-[#6B7280]">{step.text}</p>
 
                 {step.points?.length
                   ? step.points.map((point) => (
                       <div key={point} className="space-y-2">
-                        <div
-                          key={point}
-                          className="flex items-center gap-2 text-sm text-[#6B7280]"
-                        >
+                        <div className="flex items-center gap-2 text-sm text-[#6B7280]">
                           <div
                             className={`h-1.5 w-1.5 rounded-full`}
                             style={{ background: step.color }}
@@ -143,30 +118,25 @@ export default function FeaturesSection() {
               {/* Arrow for desktop */}
               {step.arrowColor ? (
                 <div className="absolute top-1/2 -right-4 hidden -translate-y-1/2 transform lg:block">
-                  <ArrowRight
-                    style={{ color: step.arrowColor }}
-                    className="h-8 w-8"
-                  />
+                  <ArrowRight style={{ color: step.arrowColor }} className="h-8 w-8" />
                 </div>
               ) : null}
             </div>
           ))}
-        
         </div>
 
         {/* Results Banner */}
-        <div className="mb-12 rounded-3xl border border-primary/10 bg-gradient-to-r from-primary/5 to-accent/5 p-8 lg:p-12">
+        <div className="mb-12 rounded-3xl border border-primary/10 bg-gradient-to-r from-primary/5 to-accent/5 p-6 lg:p-12">
           <div className="text-center">
             <h3 className="mb-4 text-2xl font-bold text-[#111827] lg:text-3xl">
-              🎯 Ready to 10x Your Social Media Game?
+              🚀 Ready to Scale Your Social Marketing?
             </h3>
             <p className="mx-auto mb-6 max-w-2xl text-lg text-[#6B7280]">
-              Join thousands of businesses already using PostWizard to create
-              engaging content that converts
+              Join thousands of Shopify & WooCommerce businesses already using PostWizard to grow faster.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <button className="group inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl">
+              <button className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group inline-flex items-center gap-2">
                 Start Free Trial
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
@@ -184,9 +154,7 @@ export default function FeaturesSection() {
 
         {/* Trust Indicators */}
         <div className="text-center">
-          <p className="mb-4 text-sm text-[#6B7280]">
-            Trusted by 10,000+ businesses worldwide
-          </p>
+          <p className="mb-4 text-sm text-[#6B7280]">Trusted by 10,000+ businesses worldwide</p>
           <div className="flex items-center justify-center gap-8 opacity-60">
             <div className="text-2xl">🏪</div>
             <div className="text-2xl">🍕</div>

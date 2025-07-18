@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { Image } from "./image";
 import { Status, TMedia } from "@/hooks/useFileUpload";
 import { Loader } from "./loader";
@@ -53,10 +53,10 @@ const Preview = ({
   if (status === "success" || errors?.length) {
     control = (
       <button
-        className="block ml-auto text-destructive"
+        className="text-destructive ml-auto block"
         type="button"
         onClick={(e) => {
-          e.stopPropagation()
+          e.stopPropagation();
           onDelete?.(id, type);
         }}
       >
@@ -66,7 +66,7 @@ const Preview = ({
   } else if (status === "failed") {
     control = (
       <button
-        className="block ml-auto"
+        className="ml-auto block"
         type="button"
         onClick={() => onRetry?.(id)}
       >
@@ -75,32 +75,24 @@ const Preview = ({
     );
   }
   return (
-    <Card
+    <div
       className={cn(
-        "flex-row  mb-3 items-center  h-full",
-        status === "failed" ? "text-destructive border-destructive" : ""
+        "mb-3 flex-row items-center",
+        status === "failed" ? "text-destructive border-destructive" : "",
       )}
     >
-      <div className="w-20 h-20 flex justify-center items-center">
-        {mime?.indexOf("image") > -1 ? (
-          <Image
-            src={url}
-            width={80}
-            height={80}
-            responsive={false}
-            alt={name}
-          />
-        ) : mime.indexOf("video") > -1 ? (
-          <video className="object-cover" width={80} controls>
-            <source src={url} id="video_here" />
-            Your browser does not support HTML5 video.
-          </video>
-        ) : (
-          <HiDocumentText size="1.75rem" className="text-danger" />
-        )}
-      </div>
+      {mime?.indexOf("image") > -1 ? (
+        <Image src={url} responsive={true} alt={name} />
+      ) : mime.indexOf("video") > -1 ? (
+        <video className="object-cover" width={200} controls>
+          <source src={url} id="video_here" />
+          Your browser does not support HTML5 video.
+        </video>
+      ) : (
+        <HiDocumentText size="1.75rem" className="text-danger" />
+      )}
 
-      <Spacing className="ml-3 flex-1" level={3}>
+      {/* <Spacing className="ml-3 flex-1" level={3}>
         {control}
         <Text level={3}>
           {shortenedName}.{extenstion}
@@ -111,8 +103,8 @@ const Preview = ({
         {errors?.map((error) => (
           <Text key={error}>{error}</Text>
         ))}
-      </Spacing>
-    </Card>
+      </Spacing> */}
+    </div>
   );
 };
 export type TFilesPreviewProps = {
@@ -130,13 +122,7 @@ export const FilesPreview = ({
   return (
     <Fragment>
       {Boolean(files.length) && (
-        <Row className={cn("gap-2 flex-wrap mt-[16px]")}>
-          {files.map((file) => (
-            <Col key={file.name} className="max-w-[24%] basis-[24%]">
-              <Preview {...file} onDelete={onDelete} onRetry={onRetry} />
-            </Col>
-          ))}
-        </Row>
+        <Preview {...files[0]} onDelete={onDelete} onRetry={onRetry} />
       )}
       {Boolean(rejectedFiles?.length) && (
         <Heading level={4} className="mt-5">
@@ -144,13 +130,7 @@ export const FilesPreview = ({
         </Heading>
       )}
       {Boolean(rejectedFiles.length) && (
-        <Row className={cn("gap-2 flex-wrap mt-[16px]")}>
-          {rejectedFiles.map((file) => (
-            <Col key={file.name} className="max-w-[24%] basis-[24%]">
-              <Preview {...file} type="rejected-file" onDelete={onDelete} />
-            </Col>
-          ))}
-        </Row>
+        <Preview {...files[0]} onDelete={onDelete} onRetry={onRetry} />
       )}
     </Fragment>
   );
